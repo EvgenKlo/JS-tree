@@ -1,11 +1,15 @@
-import { getDataTree, sortData } from "./data/getDataTree.js";
+import { DataTree } from "./data/dataTree.js";
 
-import { createRootList, render } from "./app/app.js";
+import JSON from "./../data/data.json" assert { type: "json" };
 
-const dataTree = getDataTree();
+import { App } from "./app/app.js";
 
-const sortTree = sortData(dataTree);
+const root = document.getElementById("root");
 
-const listRoot = createRootList();
+const app = new App(root);
 
-render(sortTree, listRoot);
+const data = new DataTree(JSON);
+
+const sortData = data.getSortData();
+
+app.render(sortData);

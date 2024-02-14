@@ -1,7 +1,7 @@
 import JSON from "../../data/data.json" assert { type: "json" };
 import pushItem from "./pushItem.js";
 
-const getDataTree = () => {
+export const getDataTree = () => {
   const data = JSON.services;
 
   const tree = [];
@@ -24,4 +24,14 @@ const getDataTree = () => {
   return tree;
 };
 
-export default getDataTree;
+export const sortData = (data) => {
+  if (Array.isArray(data)) {
+    data.sort((a, b) => a.item.sorthead - b.item.sorthead);
+  }
+  data.map((item) => {
+    if (item.children) {
+      sortData(item.children);
+    }
+  });
+  return data;
+};

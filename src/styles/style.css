@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.list__item > ul {
+  display: none;
+}
+
+.list__item.open > ul {
+  display: block;
+}
+
+.list__item_text:before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.button {
+  cursor: pointer;
+}
+
+.button:before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  border-bottom: 2px solid black;
+  border-right: 2px solid black;
+  margin-right: 8px;
+  margin-bottom: 2px;
+  transform: rotate(-45deg);
+  transition: 0.3s;
+}
+
+.button.open:before {
+  transform: rotate(45deg);
+}
